@@ -1,10 +1,5 @@
 #include "shell.h"
 
-
-/* char *function_names[] = {"cd", "help", "exit"}; */
-/* int (*commands_lst[]) (char **) = {&_cd, &_help, &_stop}; */
-
-
 /**
  * _cd - change current directory
  * @args: command and dir name
@@ -62,17 +57,4 @@ void _stop(char **args)
 {
 	if (strcmp(args[0], "exit") == 0)
 		exit(0);
-}
-
-
-
-
-/**
- * function_names_len - get length of the array
- *
- * Return: 2d array number of values
- */
-int function_names_len(void (**function_names)(char **))
-{
-	return (sizeof(function_names) / sizeof(char *));
 }

@@ -16,5 +16,5 @@ int _execute(char **args)
 	_cd(args);
 	_help(args);
 	_stop(args);
-	return _fork(args);
+	return (_fork(args));
 }

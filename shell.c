@@ -5,20 +5,18 @@
  *
  * Return: EXIT_SUCCESS
  */
-int main()
+int main(void)
 {
 	char *string;
 	char **tokens;
 	int status;
 
-	do
-	{
+	do {
 		printf("$ ");
 		string = _getline();
 		tokens = _strtok(string);
 		status = _execute(tokens);
-	}
-	while(status);
+	} while (status);
 
 	free(string);
 	free(tokens);

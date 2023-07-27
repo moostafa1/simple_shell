@@ -15,7 +15,5 @@ int _execute(char **args);
 void _cd(char **args);
 void _help(char **args);
 void _stop(char **args);
-int function_names_len(void (**args)(char **));
-
 
 #endif

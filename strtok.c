@@ -21,7 +21,7 @@ char **_strtok(char *line)
 	if (!tokens)
 	{
 		fprintf(stderr, "error: allocation failed\n");
-		/*free(tokens);*/
+		free(tokens);
 		exit(EXIT_FAILURE);
 	}
 
@@ -39,7 +39,7 @@ char **_strtok(char *line)
 			if (!tokens)
 			{
 				fprintf(stderr, "error: reallocation failed\n");
-				/*free(tokens);*/
+				free(tokens);
 				exit(EXIT_FAILURE);
 			}
 		}
