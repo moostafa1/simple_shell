@@ -5,6 +5,7 @@ char *function_names[] = {"cd", "help", "exit"};
 int (*commands_lst[]) (char **) = {&_cd, &_help, &_stop};
 
 
+
 /**
  * _cd - change current directory
  * @args: command and dir name
@@ -42,11 +43,12 @@ int _help(char **function_names)
 	printf("Mostafa Noaman - Abdul Aziz Al Saudi\n");
 	printf("Allowed commands:\n");
 	printf("\tpwd\n\tls\n\ttouch\n\tmv\n\trm\n");
+
 	for (; i < function_names_len(); i++)
 	{
 		printf("\t%s\n", function_names[i]);
 	}
-	printf("for more incormation use: man (command name)");
+	printf("for more incormation use: man (command name)\n");
 	return (1);
 }
 
@@ -63,7 +65,7 @@ int _stop(char **args)
 {
 	if (strcmp(args[0], "exit") == 0)
 		return (0);
-	return (1);
+	return (0);
 }
 
 

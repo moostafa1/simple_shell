@@ -15,7 +15,6 @@ int _execute(char **args)
 	if (args[0] == NULL)
 		return (1);
 
-
 	for (; i < function_names_len(); i++)
 	{
 		if (strcmp(args[0], function_names[i]) == 0)

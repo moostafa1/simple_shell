@@ -16,7 +16,6 @@ int _cd(char **args);
 int _help(char **args);
 int _stop(char **args);
 int function_names_len(void);
-
 extern char *function_names[];
 extern int (*commands_lst[]) (char **);
 
