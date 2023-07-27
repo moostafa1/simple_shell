@@ -20,25 +20,26 @@ char **_strtok(char *line)
 
 	if (!tokens)
 	{
-		fprintf(stderr, "free memory: allocation error\n");
-		free(tokens);
+		fprintf(stderr, "error: allocation failed\n");
+		/*free(tokens);*/
 		exit(EXIT_FAILURE);
 	}
 
 	token = strtok(line, TOKEN_DELIM);
 	while (token)
 	{
-		tokens[index++] = token;
+		tokens[index] = token;
+		index++;
 
 		if (index >= size)
 		{
 			size += TOKEN_SIZE;
-			tokens = realloc(tokens, size * sizeof(token));
+			tokens = realloc(tokens, size * sizeof(char *));
 
 			if (!tokens)
 			{
-				fprintf(stderr, "free memory: allocation error\n");
-				free(tokens);
+				fprintf(stderr, "error: reallocation failed\n");
+				/*free(tokens);*/
 				exit(EXIT_FAILURE);
 			}
 		}

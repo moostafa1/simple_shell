@@ -16,7 +16,7 @@ int main()
 		printf("$ ");
 		string = _getline();
 		tokens = _strtok(string);
-		status = _fork(tokens);
+		status = _execute(tokens);
 	}
 	while(status);
 
