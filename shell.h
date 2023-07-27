@@ -8,8 +8,16 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-int _strlen(char *s);
-int _strcmp(char *s1, char *s2);
-void _execve(char *fname);
+char *_getline();
+char **_strtok(char *line);
+int _fork(char **args);
+int _execute(char **args);
+int _cd(char **args);
+int _help(char **args);
+int _stop(char **args);
+int function_names_len();
+
+extern char *function_names[];
+extern int (*commands_lst[]) (char **);
 
 #endif

@@ -1,50 +1,26 @@
 #include "shell.h"
 
 /**
- * main - prints "$ " waiting the user to enter a command, then token it
+ * main - executing the shell code by calling all the functions in a loop
  *
- * Return: 0
+ * Return: EXIT_SUCCESS
  */
 int main()
 {
-	int bytes_read;
-	size_t size = 1;
 	char *string;
-	const char s[2] = " ";
-	char *token;
-	/*char *_exit = "exit";*/
+	char **tokens;
+	int status;
 
-	while (1)
+	do
 	{
-		/* These 2 lines are very important. */
-		string = (char *) malloc(size);
-		bytes_read = getline(&string, &size, stdin);
-		string[strlen(string) - 1]= '\0';
-
 		printf("$ ");
-		_execve(string);
-		if (bytes_read == -1)
-		{
-			puts("ERROR!");
-		}
-		else
-		{
-			/* get the first token */
-			token = strtok(string, s);
-			/* puts(string); */
-		}
-		/*if (_strcmp(string, _exit) == 0)
-			exit(0);*/
-
-		/* walk through other tokens */
-		while(token != NULL)
-		{
-			/*printf("%s\n", token);*/
-			token = strtok(NULL, s);
-		}
+		string = _getline();
+		tokens = _strtok(string);
+		status = _fork(tokens);
 	}
+	while(status);
 
-		free(string);
-		free(token);
-		return (0);
+	free(string);
+	free(tokens);
+	return (EXIT_SUCCESS);
 }
