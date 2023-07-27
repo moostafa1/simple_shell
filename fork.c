@@ -27,9 +27,7 @@ int _fork(char **args)
 	/* parent process */
 	else
 	{
-		do {
-			wait(&status);
-		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+		waitpid(child_pid, &status, WUNTRACED);
 	}
 	return (1);
 }

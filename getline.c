@@ -9,11 +9,8 @@
  */
 char *_getline(void)
 {
-	int size = BUFFER_SIZE;
-	int index = 0;
+	int size = BUFFER_SIZE, index = 0, c;
 	char *buffer;
-	int c;
-
 
 	buffer = malloc(sizeof(char) * size);
 	if (!buffer)
@@ -29,8 +26,6 @@ char *_getline(void)
 		if (c == EOF || c == '\n')
 		{
 			buffer[index] = '\0';
-			if (index == 0)
-				return (NULL);
 			return (buffer);
 		}
 		else
@@ -42,7 +37,7 @@ char *_getline(void)
 		if (index > size)
 		{
 			size += BUFFER_SIZE;
-			buffer = realloc(buffer, sizeof(*buffer));
+			buffer = realloc(buffer, size);
 			if (!buffer)
 			{
 				fprintf(stderr, "free memory: allocation error\n");
@@ -51,5 +46,5 @@ char *_getline(void)
 			}
 		}
 	}
-	/*free(buffer);*/
+	free(buffer);
 }
