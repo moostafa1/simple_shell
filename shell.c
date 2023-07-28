@@ -15,11 +15,10 @@ int main(void)
 		printf("$ ");
 		string = _getline();
 		tokens = _strtok(string);
-		/*status = _fork(tokens);*/
 		status = _execute(tokens);
+		free(string);
+		free(tokens);
 	} while (status);
 
-	free(string);
-	free(tokens);
 	return (EXIT_SUCCESS);
 }
