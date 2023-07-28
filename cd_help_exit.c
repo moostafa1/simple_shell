@@ -64,7 +64,11 @@ int _help(char **function_names)
 int _stop(char **args)
 {
 	if (strcmp(args[0], "exit") == 0)
+	{
+		if (args[1] != NULL)
+			printf("%s\n", args[1]);
 		return (0);
+	}
 	return (0);
 }
 
