@@ -31,11 +31,11 @@ int _cd(char **args)
 
 /**
  * _help - prints some helpful information
- * @function_names: array of command names
+ * @args: array of command names
  *
  * Return: 1
  */
-int _help(char **function_names)
+int _help(__attribute__((unused)) char **args)
 {
 	int i = 0;
 
@@ -61,14 +61,8 @@ int _help(char **function_names)
  *
  * Return: 1
  */
-int _stop(char **args)
+int _stop(__attribute__((unused)) char **args)
 {
-	if (strcmp(args[0], "exit") == 0)
-	{
-		if (args[1] != NULL)
-			printf("%s\n", args[1]);
-		return (0);
-	}
 	return (0);
 }
 
